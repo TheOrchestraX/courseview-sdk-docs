@@ -59,7 +59,7 @@ Then initialize the SDK after the page loads:
 </script>
 ```
 
-The SDK will query the external API, fetch up to 20 course records by the occupation IDs by default, and render their related courses inside `#mf-container`.
+The SDK will query the external API, retrieve up to 20 course records based on the provided occupation IDs, and render them inside the specified `#mf-container` element.
 
 ---
 
