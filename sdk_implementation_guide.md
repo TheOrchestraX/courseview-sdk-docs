@@ -1,6 +1,6 @@
 # Overview
 
-This document provides detailed, step-by-step instructions for integrating the MicroFrontend SDK into your web application. The SDK enables you to load and display data from an external API directly within your site, rendering content inline based on occupation filters.
+This document provides detailed, step-by-step instructions for integrating the CourseView (MicroFrontend) SDK into your web application. The SDK enables you to load and display data from an external API directly within your site, rendering content inline based on occupation filters.
 
 ---
 
@@ -59,7 +59,7 @@ Then initialize the SDK after the page loads:
 </script>
 ```
 
-The SDK will query the external API, fetch up to 20 occupation records by default, and render their related courses inside `#mf-container`.
+The SDK will query the external API, fetch up to 20 course records by the occupation IDs by default, and render their related courses inside `#mf-container`.
 
 ---
 
@@ -121,8 +121,7 @@ MicroFrontend.init({
 
 | Symptom                  | Resolution                                         |
 | ------------------------ | -------------------------------------------------- |
-| No content appears       | 1. Verify `#mf-container` exists.                  |
-|                          | 2. Check console for `mf:error` details.           |
+| No content appears       | Verify `#mf-container` exists.                     |
 | SDK script fails to load | Confirm the script URL is correct and not blocked. |
 | Invalid `occupationIds`  | Ensure it’s a comma-separated string of integers.  |
 
