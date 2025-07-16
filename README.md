@@ -62,5 +62,4 @@ You can customize the appearance of the SDK container:
 ## 🛠 Version & Updates
 
 - Current Version: `1.0`
-- SDK: [micro-frontend-sdk.js](https://sea-turtle-toolkit-yupbm.ondigitalocean.app/assets/sdk/micro-frontend-sdk.js)
 - Changelog: Coming soon
