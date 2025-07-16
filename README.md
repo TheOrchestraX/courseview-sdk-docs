@@ -45,17 +45,6 @@ For complete setup instructions, styling tips, and advanced usage:
 
 ---
 
-## 🧪 Events & Callbacks
-
-You can listen to lifecycle events:
-
-```js
-window.addEventListener("mf:loaded", () => console.log("Content loaded"));
-window.addEventListener("mf:error", (e) => console.error("Error:", e.detail));
-```
-
----
-
 ## 🎨 Styling
 
 You can customize the appearance of the SDK container:
