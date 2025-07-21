@@ -1,6 +1,6 @@
-# CourseView - MicroFrontend SDK Documentation
-
 ![Candlefox Logo](images/candlefox-logo.png)
+
+# CourseView - MicroFrontend SDK Documentation
 
 Welcome to the official integration guide for the **MicroFrontend SDK** — a lightweight JavaScript SDK designed to embed dynamic course-related content from an external API directly into your website.
 

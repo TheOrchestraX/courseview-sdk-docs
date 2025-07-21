@@ -1,6 +1,6 @@
-# Overview
-
 ![Candlefox Logo](images/candlefox-logo.png)
+
+# Overview
 
 This document provides detailed, step-by-step instructions for integrating the CourseView (MicroFrontend) SDK into your web application. The SDK enables you to load and display data from an external API directly within your site, rendering content inline based on occupation filters.
 
