@@ -1,5 +1,7 @@
 # CourseView - MicroFrontend SDK Documentation
 
+![Candlefox Logo](images/candlefox-logo.png)
+
 Welcome to the official integration guide for the **MicroFrontend SDK** — a lightweight JavaScript SDK designed to embed dynamic course-related content from an external API directly into your website.
 
 This SDK enables partners to display course information inline on any webpage using just a few lines of code.
@@ -21,6 +23,7 @@ This SDK enables partners to display course information inline on any webpage us
     MicroFrontend.init({
       target: "#mf-container", // CSS selector for the container
       occupationIds: "12,24", // Comma-separated occupation ID values
+      affiliateId: "1", // String containing affiliate ID value
     });
   });
 </script>
@@ -34,6 +37,7 @@ This SDK enables partners to display course information inline on any webpage us
 | --------------- | -------- | -------- | ------------------------------------------------------------- |
 | `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
+| `affiliateId`   | `string` | Yes      | String containing affiliate ID.                               |
 
 ---
 
@@ -63,3 +67,5 @@ You can customize the appearance of the SDK container:
 
 - Current Version: `1.0`
 - Changelog: Coming soon
+
+![OrchestraX Logo](images/logo.png)

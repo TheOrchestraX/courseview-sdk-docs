@@ -1,5 +1,7 @@
 # Overview
 
+![Candlefox Logo](images/candlefox-logo.png)
+
 This document provides detailed, step-by-step instructions for integrating the CourseView (MicroFrontend) SDK into your web application. The SDK enables you to load and display data from an external API directly within your site, rendering content inline based on occupation filters.
 
 ---
@@ -54,6 +56,7 @@ Then initialize the SDK after the page loads:
     MicroFrontend.init({
       target:        "#mf-container", // CSS selector for the inline container
       occupationIds: "12,24",         // Comma-separated occupation IDs
+      affiliateId: "1",               // String containing affiliate ID value
     });
   });
 </script>
@@ -69,6 +72,7 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 | --------------- | -------- | -------- | ------------------------------------------------------------- |
 | `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
+| `affiliateId`   | `string` | Yes      | String containing affiliate ID.                               |
 
 ---
 
@@ -93,6 +97,7 @@ The SDK will query the external API, retrieve up to 20 course records based on t
       MicroFrontend.init({
         target:        "#mf-container",
         occupationIds: "12,24,31",
+        affiliateId: "1",
       });
     });
   </script>
@@ -112,6 +117,7 @@ const ids = fetchSelectedOccupationIds(); // returns [12,24,31]
 MicroFrontend.init({
   target:        '#mf-container',
   occupationIds: ids.join(','),
+  affiliateId: "1",
 });
 ```
 
@@ -124,6 +130,7 @@ MicroFrontend.init({
 | No content appears       | Verify `#mf-container` exists.                     |
 | SDK script fails to load | Confirm the script URL is correct and not blocked. |
 | Invalid `occupationIds`  | Ensure it’s a comma-separated string of integers.  |
+| Invalid `affiliateId`    | Ensure it’s a string of a single integer.          |
 
 ---
 
@@ -141,4 +148,6 @@ Target `#mf-container` in your CSS to adjust layout:
 
 ---
 
-*Last updated: July 16, 2025*
+*Last updated: July 21, 2025*
+
+![OrchestraX Logo](images/logo.png)
