@@ -23,7 +23,7 @@ This document provides detailed, step-by-step instructions for integrating the C
 
 - A modern web browser with JavaScript enabled.
 - Access to your web application's source code to include scripts and markup.
-- Network access to `https://sea-turtle-toolkit-yupbm.ondigitalocean.app`.
+- Network access to `https://courseview.orchestrax.com`.
 
 ---
 
@@ -33,7 +33,7 @@ Add the SDK script tag to your HTML, ideally before your closing `</body>` tag:
 
 ```html
 <!-- Include the MicroFrontend SDK -->
-<script src="https://sea-turtle-toolkit-yupbm.ondigitalocean.app/assets/sdk/micro-frontend-sdk.js"></script>
+<script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
 ```
 
 This downloads and registers `MicroFrontend` globally for use in your code.
@@ -54,9 +54,9 @@ Then initialize the SDK after the page loads:
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
-      target:        "#mf-container", // CSS selector for the inline container
-      occupationIds: "12,24",         // Comma-separated occupation IDs
-      affiliateId: "1",               // String containing affiliate ID value
+      target: "#mf-container", // CSS selector for the inline container
+      occupationIds: "12,24", // Comma-separated occupation IDs
+      affiliateId: "1", // String containing affiliate ID value
     });
   });
 </script>
@@ -81,28 +81,26 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>SDK Inline Integration</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SDK Inline Integration</title>
+  </head>
+  <body>
+    <!-- Container for the SDK content -->
+    <div id="mf-container"></div>
 
-  <!-- Container for the SDK content -->
-  <div id="mf-container"></div>
-
-  <!-- SDK Script -->
-  <script src="https://sea-turtle-toolkit-yupbm.ondigitalocean.app/assets/sdk/micro-frontend-sdk.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      MicroFrontend.init({
-        target:        "#mf-container",
-        occupationIds: "12,24,31",
-        affiliateId: "1",
+    <!-- SDK Script -->
+    <script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        MicroFrontend.init({
+          target: "#mf-container",
+          occupationIds: "12,24,31",
+          affiliateId: "1",
+        });
       });
-    });
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
 ```
 
@@ -115,8 +113,8 @@ If your application determines `occupationIds` dynamically (e.g. based on user a
 ```js
 const ids = fetchSelectedOccupationIds(); // returns [12,24,31]
 MicroFrontend.init({
-  target:        '#mf-container',
-  occupationIds: ids.join(','),
+  target: "#mf-container",
+  occupationIds: ids.join(","),
   affiliateId: "1",
 });
 ```
@@ -148,6 +146,6 @@ Target `#mf-container` in your CSS to adjust layout:
 
 ---
 
-*Last updated: July 21, 2025*
+_Last updated: July 21, 2025_
 
 ![OrchestraX Logo](images/logo.png)

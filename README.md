@@ -17,7 +17,7 @@ This SDK enables partners to display course information inline on any webpage us
 <div id="mf-container"></div>
 
 <!-- Include the MicroFrontend SDK -->
-<script src="https://sea-turtle-toolkit-yupbm.ondigitalocean.app/assets/sdk/micro-frontend-sdk.js"></script>
+<script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
