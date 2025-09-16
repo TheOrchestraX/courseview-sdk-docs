@@ -45,7 +45,7 @@ This downloads and registers `MicroFrontend` globally for use in your code.
 Ensure your container element exists in the DOM:
 
 ```html
-<div id="mf-container"></div>
+<div class="mf-container"></div>
 ```
 
 Then initialize the SDK after the page loads:
@@ -54,7 +54,7 @@ Then initialize the SDK after the page loads:
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
-      target: "#mf-container", // CSS selector for the inline container
+      target: ".mf-container", // CSS selector for the inline container
       occupationIds: "12,24", // Comma-separated occupation IDs
       affiliateId: "1", // String containing affiliate ID value
     });
@@ -62,7 +62,7 @@ Then initialize the SDK after the page loads:
 </script>
 ```
 
-The SDK will query the external API, retrieve up to 20 course records based on the provided occupation IDs, and render them inside the specified `#mf-container` element.
+The SDK will query the external API, retrieve up to 20 course records based on the provided occupation IDs, and render them inside the specified `.mf-container` element.
 
 ---
 
@@ -87,14 +87,14 @@ The SDK will query the external API, retrieve up to 20 course records based on t
   </head>
   <body>
     <!-- Container for the SDK content -->
-    <div id="mf-container"></div>
+    <div class="mf-container"></div>
 
     <!-- SDK Script -->
     <script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         MicroFrontend.init({
-          target: "#mf-container",
+          target: ".mf-container",
           occupationIds: "12,24,31",
           affiliateId: "1",
         });
@@ -113,7 +113,7 @@ If your application determines `occupationIds` dynamically (e.g. based on user a
 ```js
 const ids = fetchSelectedOccupationIds(); // returns [12,24,31]
 MicroFrontend.init({
-  target: "#mf-container",
+  target: ".mf-container",
   occupationIds: ids.join(","),
   affiliateId: "1",
 });
@@ -125,7 +125,7 @@ MicroFrontend.init({
 
 | Symptom                  | Resolution                                         |
 | ------------------------ | -------------------------------------------------- |
-| No content appears       | Verify `#mf-container` exists.                     |
+| No content appears       | Verify `.mf-container` exists.                     |
 | SDK script fails to load | Confirm the script URL is correct and not blocked. |
 | Invalid `occupationIds`  | Ensure it’s a comma-separated string of integers.  |
 | Invalid `affiliateId`    | Ensure it’s a string of a single integer.          |
@@ -134,10 +134,10 @@ MicroFrontend.init({
 
 ## Styling & Theming
 
-Target `#mf-container` in your CSS to adjust layout:
+Target `.mf-container` in your CSS to adjust layout:
 
 ```css
-#mf-container {
+.mf-container {
   max-width: 900px;
   margin: 1rem auto;
   padding: 0.5rem;
@@ -146,6 +146,6 @@ Target `#mf-container` in your CSS to adjust layout:
 
 ---
 
-_Last updated: July 21, 2025_
+_Last updated: Sept 16, 2025_
 
 ![OrchestraX Logo](images/logo.png)

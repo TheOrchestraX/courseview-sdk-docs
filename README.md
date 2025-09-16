@@ -14,14 +14,14 @@ This SDK enables partners to display course information inline on any webpage us
 
 ```html
 <!-- Container for SDK content -->
-<div id="mf-container"></div>
+<div class="mf-container"></div>
 
 <!-- Include the MicroFrontend SDK -->
 <script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
-      target: "#mf-container", // CSS selector for the container
+      target: ".mf-container", // CSS selector for the container
       occupationIds: "12,24", // Comma-separated occupation ID values
       affiliateId: "1", // String containing affiliate ID value
     });
@@ -54,7 +54,7 @@ For complete setup instructions, styling tips, and advanced usage:
 You can customize the appearance of the SDK container:
 
 ```css
-#mf-container {
+.mf-container {
   max-width: 900px;
   margin: 1rem auto;
   padding: 0.5rem;
