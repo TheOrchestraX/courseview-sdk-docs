@@ -2,7 +2,7 @@
 
 # Listening to `mf:track` and Using Event Data
 
-This document explains how to _listen_ for the `mf:track` custom event and _use the event data_ to forward to analytics providers (GA4 / Facebook Pixel / dataLayer). It contains code examples and best-practice tips for extracting and mapping the event's `detail` payload to provider-specific calls.
+This document explains how to _listen_ for the `mf:track` custom event. The _event data_ will automatically forward to analytics providers (GA4 / Facebook Pixel / dataLayer).
 
 ---
 
@@ -59,9 +59,9 @@ window.addEventListener("mf:track", rawHandler);
 window.removeEventListener('mf:track', rawHandler);
 ```
 
-### B — Convenience API (`window.mfTracking.on`) — preferred if available
+### B — Convenience API (`window.mfTracking.on`) — preferred
 
-If the `event-tracking.js` helper is present it exposes `window.mfTracking.on(eventName, handler)` which filters events by `event_type` for you, and returns an `unsubscribe` function.
+The `event-tracking.js` helper exposes `window.mfTracking.on(eventName, handler)` which filters events by `event_type` for you, and returns an `unsubscribe` function.
 
 ```js
 // Listen for only TILE_CLICK events
