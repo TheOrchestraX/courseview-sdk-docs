@@ -63,9 +63,17 @@ You can customize the appearance of the SDK container:
 
 ---
 
+## 📚 Other Documentations
+
+👉 [Custom Events Implementation](./custom_events_implementation.md)
+
+---
+
 ## 🛠 Version & Updates
 
 - Current Version: `1.0`
 - Changelog: Coming soon
+
+_Last updated: Oct 24, 2025_
 
 ![OrchestraX Logo](images/logo.png)
