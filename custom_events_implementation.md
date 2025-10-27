@@ -67,7 +67,7 @@ The `event-tracking.js` helper exposes `window.mfTracking.on(eventName, handler)
 // Listen for only TILE_CLICK events
 const unsubscribe = window.mfTracking.on("TILE_CLICK", (params, options) => {
   console.log("tile click params", params);
-  // forward to analytics (see examples below)
+  // forward to analytics
 });
 
 // Unsubscribe when you no longer need the listener
