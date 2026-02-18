@@ -55,8 +55,9 @@ Then initialize the SDK after the page loads:
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
       target: ".mf-container", // CSS selector for the inline container
-      occupationIds: "12,24", // Comma-separated occupation IDs
-      affiliateId: "1", // String containing affiliate ID value
+      courseViewId: "UUID", // String containing Course View UUID value
+      occupationIds: "12,24", // Optional: Comma-separated occupation IDs
+      subject: "art,accounting", // Optional: Comma-separated subject strings
     });
   });
 </script>
@@ -71,8 +72,9 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 | Option          | Type     | Required | Description                                                   |
 | --------------- | -------- | -------- | ------------------------------------------------------------- |
 | `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
+| `courseViewId`  | `UIUD`   | Yes      | String containing Course View ID.                             |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
-| `affiliateId`   | `string` | Yes      | String containing affiliate ID.                               |
+| `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
 
 ---
 
@@ -95,8 +97,9 @@ The SDK will query the external API, retrieve up to 20 course records based on t
       document.addEventListener("DOMContentLoaded", () => {
         MicroFrontend.init({
           target: ".mf-container",
+          courseViewId: "UUID",
           occupationIds: "12,24,31",
-          affiliateId: "1",
+          subject: "art,accounting,fitness",
         });
       });
     </script>
@@ -108,14 +111,23 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 
 ## Dynamic Parameters
 
-If your application determines `occupationIds` dynamically (e.g. based on user actions or metadata), generate the comma-separated string and pass it into `init`:
+If your application determines `occupationIds` or `subjects` dynamically (e.g. based on user actions or metadata), generate the comma-separated string and pass it into `init`:
 
 ```js
 const ids = fetchSelectedOccupationIds(); // returns [12,24,31]
 MicroFrontend.init({
   target: ".mf-container",
+  courseViewId: "UUID",
   occupationIds: ids.join(","),
-  affiliateId: "1",
+});
+
+// Or
+
+const subjects = fetchSelectedSubjects(); // returns ["art","accounting","fitness"]
+MicroFrontend.init({
+  target: ".mf-container",
+  courseViewId: "UUID",
+  subject: subjects.join(","),
 });
 ```
 
@@ -127,8 +139,9 @@ MicroFrontend.init({
 | ------------------------ | -------------------------------------------------- |
 | No content appears       | Verify `.mf-container` exists.                     |
 | SDK script fails to load | Confirm the script URL is correct and not blocked. |
+| Invalid `courseViewId`   | Ensure it’s a valid Course View ID of UUID type.   |
 | Invalid `occupationIds`  | Ensure it’s a comma-separated string of integers.  |
-| Invalid `affiliateId`    | Ensure it’s a string of a single integer.          |
+| Invalid `subject`        | Ensure it’s a comma-separated string of strings.   |
 
 ---
 
@@ -146,6 +159,6 @@ Target `.mf-container` in your CSS to adjust layout:
 
 ---
 
-_Last updated: Sept 16, 2025_
+_Last updated: Feb 18, 2026_
 
 ![OrchestraX Logo](images/logo.png)

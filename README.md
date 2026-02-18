@@ -22,8 +22,9 @@ This SDK enables partners to display course information inline on any webpage us
   document.addEventListener("DOMContentLoaded", function () {
     MicroFrontend.init({
       target: ".mf-container", // CSS selector for the container
-      occupationIds: "12,24", // Comma-separated occupation ID values
-      affiliateId: "1", // String containing affiliate ID value
+      courseViewId: "UUID", // String containing Course View UUID value
+      occupationIds: "12,24", // Optional: Comma-separated occupation IDs
+      subject: "art,accounting", // Optional: Comma-separated subject strings
     });
   });
 </script>
@@ -36,8 +37,9 @@ This SDK enables partners to display course information inline on any webpage us
 | Option          | Type     | Required | Description                                                   |
 | --------------- | -------- | -------- | ------------------------------------------------------------- |
 | `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
+| `courseViewId`  | `UIUD`   | Yes      | String containing Course View ID.                             |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
-| `affiliateId`   | `string` | Yes      | String containing affiliate ID.                               |
+| `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
 
 ---
 
@@ -74,6 +76,6 @@ You can customize the appearance of the SDK container:
 - Current Version: `1.0`
 - Changelog: Coming soon
 
-_Last updated: Oct 24, 2025_
+_Last updated: Feb 18, 2026_
 
 ![OrchestraX Logo](images/logo.png)
