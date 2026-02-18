@@ -72,7 +72,7 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 | Option          | Type     | Required | Description                                                   |
 | --------------- | -------- | -------- | ------------------------------------------------------------- |
 | `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
-| `courseViewId`  | `UIUD`   | Yes      | String containing Course View ID.                             |
+| `courseViewId`  | `UUID`   | Yes      | String containing Course View ID.                             |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
 | `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
 
