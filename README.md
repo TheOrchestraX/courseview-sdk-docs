@@ -23,6 +23,7 @@ This SDK enables partners to display course information inline on any webpage us
     MicroFrontend.init({
       target: ".mf-container", // CSS selector for the container
       courseViewId: "UUID", // String containing Course View UUID value
+      // Use one of the params below, not both
       occupationIds: "12,24", // Optional: Comma-separated occupation IDs
       subject: "art,accounting", // Optional: Comma-separated subject strings
     });

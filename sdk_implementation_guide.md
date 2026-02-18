@@ -56,6 +56,7 @@ Then initialize the SDK after the page loads:
     MicroFrontend.init({
       target: ".mf-container", // CSS selector for the inline container
       courseViewId: "UUID", // String containing Course View UUID value
+      // Use one of the params below, not both
       occupationIds: "12,24", // Optional: Comma-separated occupation IDs
       subject: "art,accounting", // Optional: Comma-separated subject strings
     });
@@ -98,6 +99,7 @@ The SDK will query the external API, retrieve up to 20 course records based on t
         MicroFrontend.init({
           target: ".mf-container",
           courseViewId: "UUID",
+          // Use one of the params below, not both
           occupationIds: "12,24,31",
           subject: "art,accounting,fitness",
         });
