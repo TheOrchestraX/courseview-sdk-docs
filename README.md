@@ -41,6 +41,9 @@ This SDK enables partners to display course information inline on any webpage us
 | `courseViewId`  | `UIUD`   | Yes      | String containing Course View ID.                             |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
 | `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
+| `qualifications` | `string` | No      | With `subject`: comma-separated qualification levels to limit the results to, e.g. `"diploma,advanced_diploma"`. See [Limiting by qualification level](https://theorchestrax.github.io/courseview-sdk-docs/sdk_implementation_guide.html#limiting-by-qualification-level). |
+| `level`         | `string` | No       | Starting value of the course view's Level filter. Visitors can change it. |
+| `delivery`      | `string` | No       | Starting value of the course view's Delivery filter, e.g. `"online"`. Visitors can change it. |
 
 ---
 
