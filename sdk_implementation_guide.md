@@ -76,6 +76,9 @@ The SDK will query the external API, retrieve up to 20 course records based on t
 | `courseViewId`  | `UUID`   | Yes      | String containing Course View ID.                             |
 | `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
 | `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
+| `qualifications` | `string` | No      | With `subject`: comma-separated qualification levels to limit the results to, e.g. `"diploma,advanced_diploma"`. See [Limiting by qualification level](#limiting-by-qualification-level). |
+| `level`         | `string` | No       | Starting value of the course view's Level filter. Visitors can change it. |
+| `delivery`      | `string` | No       | Starting value of the course view's Delivery filter, e.g. `"online"`. Visitors can change it. |
 
 ---
 
@@ -133,6 +136,35 @@ MicroFrontend.init({
 });
 ```
 
+### Limiting by qualification level
+
+A subject course view can also be limited to some qualification levels, for example a page about business diplomas. Tick **Let the page also set qualification levels** in the course view's Filtering step, then pass `qualifications` with `subject`:
+
+```js
+MicroFrontend.init({
+  target: ".mf-container",
+  courseViewId: "UUID",
+  subject: "business",
+  qualifications: "diploma,advanced_diploma",
+});
+```
+
+- Only the subject's courses at those levels are shown. Visitors can narrow the list with the course view's own filters, but "Clear all" and paging keep the levels.
+- The levels you pass replace the Qualifications saved on the course view.
+- When `qualifications` is set, no popular courses are added if fewer than 4 courses match.
+- `qualifications` works with `subject` only, not with `occupationIds`.
+- An array works too: `qualifications: ["diploma", "advanced_diploma"]`.
+
+Values are course level codes, lower case with underscores. Common Australian ones: `short`, `skillset`, `certificate_i`, `certificate_ii`, `certificate_iii`, `certificate_iv`, `diploma`, `advanced_diploma`, `graduate_certificate`, `graduate_diploma`, `associate_degree`, `bachelor`, `masters`, `postgraduate`.
+
+### Changing filters after load
+
+`MicroFrontend.update()` reloads the course view with new values, for example after a visitor answers a question on your page:
+
+```js
+MicroFrontend.update({ level: "diploma", delivery: "online" });
+```
+
 ---
 
 ## Error Handling & Troubleshooting
@@ -144,6 +176,7 @@ MicroFrontend.init({
 | Invalid `courseViewId`   | Ensure it’s a valid Course View ID of UUID type.   |
 | Invalid `occupationIds`  | Ensure it’s a comma-separated string of integers.  |
 | Invalid `subject`        | Ensure it’s a comma-separated string of strings.   |
+| Invalid `qualifications` | Use level codes such as `diploma` or `certificate_iv` (letters, digits and underscores). Any other value makes the course view fail to load. |
 
 ---
 
