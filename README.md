@@ -2,65 +2,62 @@
 
 # CourseView - MicroFrontend SDK Documentation
 
-Welcome to the official integration guide for the **MicroFrontend SDK** — a lightweight JavaScript SDK designed to embed dynamic course-related content from an external API directly into your website.
+Welcome to the official integration guide for the **MicroFrontend SDK** — a lightweight JavaScript SDK designed to embed one or more Course Views (dynamic course listings) from an external API directly into your website.
 
-This SDK enables partners to display course information inline on any webpage using just a few lines of code.
+Partners add a script and an element; no other code is needed.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (SDK v6)
 
-### 1. Include the SDK in your HTML
+Add the script once, then one element per Course View:
 
 ```html
-<!-- Container for SDK content -->
-<div class="mf-container"></div>
+<!-- Include the CourseView SDK once per page -->
+<script src="https://courseview.candlefox.com/assets/sdk/v6/course-view.js" defer></script>
 
-<!-- Include the MicroFrontend SDK -->
-<script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    MicroFrontend.init({
-      target: ".mf-container", // CSS selector for the container
-      courseViewId: "UUID", // String containing Course View UUID value
-      // Use one of the params below, not both
-      occupationIds: "12,24", // Optional: Comma-separated occupation IDs
-      subject: "art,accounting", // Optional: Comma-separated subject strings
-    });
-  });
-</script>
+<!-- One element per Course View; several on one page are fine -->
+<div data-course-view-id="UUID"></div>
+
+<!-- Dynamic Course View: set the subject (or data-occupation-ids) -->
+<div data-course-view-id="UUID" data-subject="art,accounting"></div>
 ```
+
+👉 [SDK v6 guide](./sdk_v6_guide.md): attributes, dynamic Course Views, the JavaScript API, events and moving from the previous SDK.
 
 ---
 
-## ⚙️ Configuration Options
+## ⚙️ Attributes
 
-| Option          | Type     | Required | Description                                                   |
-| --------------- | -------- | -------- | ------------------------------------------------------------- |
-| `target`        | `string` | Yes      | CSS selector where the SDK will render content inline.        |
-| `courseViewId`  | `UIUD`   | Yes      | String containing Course View ID.                             |
-| `occupationIds` | `string` | No       | Comma-separated list of occupation IDs to filter the results. |
-| `subject`       | `string` | No       | Comma-separated list of subjects to filter the results.       |
-| `qualifications` | `string` | No      | With `subject`: comma-separated qualification levels to limit the results to, e.g. `"diploma,advanced_diploma"`. See [Limiting by qualification level](https://theorchestrax.github.io/courseview-sdk-docs/sdk_implementation_guide.html#limiting-by-qualification-level). |
-| `level`         | `string` | No       | Starting value of the course view's Level filter. Visitors can change it. |
-| `delivery`      | `string` | No       | Starting value of the course view's Delivery filter, e.g. `"online"`. Visitors can change it. |
+| Attribute             | Required | Description |
+| --------------------- | -------- | ----------- |
+| `data-course-view-id` | Yes      | The Course View ID (UUID). |
+| `data-subject`        | No       | Comma-separated subjects to filter the results. |
+| `data-occupation-ids` | No       | Comma-separated occupation IDs to filter the results. Use this or `data-subject`, not both. |
+| `data-qualifications` | No       | With `data-subject`: comma-separated qualification levels, e.g. `"diploma,advanced_diploma"`. |
+| `data-level`          | No       | Starting value of the Level filter. Visitors can change it. |
+| `data-delivery`       | No       | Starting value of the Delivery filter, e.g. `"online"`. Visitors can change it. |
+
+---
+
+## 🕘 Previous SDK
+
+Pages using `micro-frontend-sdk.js` and `MicroFrontend.init()` keep working. Its guide: [Previous SDK](./sdk_implementation_guide.md). To move a page to v6, see [Moving from the previous SDK](./sdk_v6_guide.md#moving-from-the-previous-sdk).
 
 ---
 
 ## 📚 Full Documentation
 
-For complete setup instructions, styling tips, and advanced usage:
-
-👉 [View Full Documentation](./sdk_implementation_guide.md)
+👉 [SDK v6 guide](./sdk_v6_guide.md)
 
 ---
 
 ## 🎨 Styling
 
-You can customize the appearance of the SDK container:
+Each Course View uses the style set in Marketing Hub. To adjust the space around it, style its element:
 
 ```css
-.mf-container {
+[data-course-view-id] {
   max-width: 900px;
   margin: 1rem auto;
   padding: 0.5rem;
@@ -77,9 +74,9 @@ You can customize the appearance of the SDK container:
 
 ## 🛠 Version & Updates
 
-- Current Version: `1.0`
+- Current Version: `6.0` (`assets/sdk/v6/course-view.js`)
 - Changelog: Coming soon
 
-_Last updated: Feb 18, 2026_
+_Last updated: Nov 20, 2026_
 
 ![OrchestraX Logo](images/logo.png)
