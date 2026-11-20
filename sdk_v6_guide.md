@@ -157,9 +157,9 @@ Options for single-page apps that change route without a page load:
 | `occupationFromUrl` | With `refreshOnNavigation`: `true` takes the occupation from the page URL's `?occupation=` parameter when `occupationIds` isn't set. |
 | `occupationExtractor` | With `refreshOnNavigation`: a function `(window) => "12,24"` returning the occupation IDs for the current route. |
 
-Attributes are read when the element is mounted; changing them afterwards has no effect. To change what a mounted Course View shows, call `update()`.
+A Course View added with attributes reloads when its `data-*` attributes change (for example a single-page app reusing the element on another route); removing `data-course-view-id` removes it. A Course View mounted with options from code ignores attribute changes; call `update()` instead.
 
-Elements that are removed from the page are unmounted automatically.
+Elements that are removed from the page are unmounted automatically. With auto-mount on, an element added back is mounted again; with `data-auto-mount="false"`, call `mount()` again.
 
 ---
 
