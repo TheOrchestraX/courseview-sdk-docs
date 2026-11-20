@@ -140,7 +140,7 @@ For single-page apps, and for pages that set or change values from JavaScript. L
 
 | Call | Description |
 | ---- | ----------- |
-| `CourseView.mount(element, options)` | Loads a Course View into `element` (an element or a CSS selector) and returns its handle. Mounting an element that is already mounted updates it instead. |
+| `CourseView.mount(element, options)` | Loads a Course View into `element` (an element or a CSS selector) and returns its handle, or `null` if the element isn't found or there is no `courseViewId`. Mounting an element that is already mounted updates it instead. |
 | `handle.update(options)` | Reloads the Course View with the given options merged into the current ones. |
 | `handle.unmount()` | Removes the Course View from the element. |
 | `CourseView.get(element)` | The handle for an element, or `null`. |
@@ -148,6 +148,16 @@ For single-page apps, and for pages that set or change values from JavaScript. L
 | `CourseView.unmountAll()` | Removes every Course View on the page. |
 
 Options match the [attributes](#attributes): `courseViewId`, `subject`, `occupationIds`, `qualifications`, `level`, `delivery`. `subject`, `occupationIds` and `qualifications` also accept arrays, e.g. `qualifications: ["diploma", "advanced_diploma"]`.
+
+Options for single-page apps that change route without a page load:
+
+| Option | Description |
+| ------ | ----------- |
+| `refreshOnNavigation` | `true` reloads the Course View when the page's URL changes (history navigation). |
+| `occupationFromUrl` | With `refreshOnNavigation`: `true` takes the occupation from the page URL's `?occupation=` parameter when `occupationIds` isn't set. |
+| `occupationExtractor` | With `refreshOnNavigation`: a function `(window) => "12,24"` returning the occupation IDs for the current route. |
+
+Attributes are read when the element is mounted; changing them afterwards has no effect. To change what a mounted Course View shows, call `update()`.
 
 Elements that are removed from the page are unmounted automatically.
 
@@ -186,6 +196,8 @@ Pages using `micro-frontend-sdk.js` keep working; there is no deadline to move.
 
 With v6, each element matched by `target` gets its own Course View, so a page with several `MicroFrontend.init()` calls for different Course Views now shows all of them (the previous SDK showed only the last one). `MicroFrontend.update()` updates every Course View created through `MicroFrontend.init()`.
 
+`MicroFrontend.init()` in v6 keeps the previous SDK's defaults: the Course View reloads when a single-page app changes route, and an occupation Course View falls back to the URL's `?occupation=` parameter. The attribute embed and `CourseView.mount()` don't do this unless you ask for it (see the [single-page app options](#javascript-api)). If your page relies on it, keep `MicroFrontend.init()` or pass those options to `CourseView.mount()`.
+
 **Recommended when you next edit the page:** replace the container and the `MicroFrontend.init()` call with an element carrying the attributes:
 
 ```html
@@ -218,10 +230,14 @@ Use only one of the two SDK scripts on a page.
 
 ## Styling
 
-Each Course View uses the style set in Marketing Hub. To adjust the space around it, style the element you added:
+Each Course View uses the style set in Marketing Hub. To adjust the space around it, give the element you added a class of your own and style that (the course cards inside also carry `data-course-view-id`, so don't style the attribute):
+
+```html
+<div class="my-courses" data-course-view-id="UUID"></div>
+```
 
 ```css
-[data-course-view-id] {
+.my-courses {
   max-width: 900px;
   margin: 1rem auto;
 }

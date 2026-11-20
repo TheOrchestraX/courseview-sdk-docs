@@ -1,6 +1,6 @@
 ![Candlefox Logo](images/candlefox-logo.png)
 
-# Previous SDK (micro-frontend-sdk.js)
+**Previous SDK (micro-frontend-sdk.js)**
 
 > **New integrations: use [SDK v6](./sdk_v6_guide.md).** It supports several Course Views on one page and needs no code. Pages using this SDK keep working; see [Moving from the previous SDK](./sdk_v6_guide.md#moving-from-the-previous-sdk).
 

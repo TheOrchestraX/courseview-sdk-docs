@@ -54,10 +54,10 @@ Pages using `micro-frontend-sdk.js` and `MicroFrontend.init()` keep working. Its
 
 ## 🎨 Styling
 
-Each Course View uses the style set in Marketing Hub. To adjust the space around it, style its element:
+Each Course View uses the style set in Marketing Hub. To adjust the space around it, give its element a class of your own (e.g. `<div class="my-courses" data-course-view-id="UUID">`) and style that; the course cards inside also carry `data-course-view-id`:
 
 ```css
-[data-course-view-id] {
+.my-courses {
   max-width: 900px;
   margin: 1rem auto;
   padding: 0.5rem;
