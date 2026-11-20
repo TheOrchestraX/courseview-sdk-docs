@@ -1,5 +1,9 @@
 ![Candlefox Logo](images/candlefox-logo.png)
 
+**Previous SDK (micro-frontend-sdk.js)**
+
+> **New integrations: use [SDK v6](./sdk_v6_guide.md).** It supports several Course Views on one page and needs no code. Pages using this SDK keep working; see [Moving from the previous SDK](./sdk_v6_guide.md#moving-from-the-previous-sdk).
+
 # Overview
 
 This document provides detailed, step-by-step instructions for integrating the CourseView (MicroFrontend) SDK into your web application. The SDK enables you to load and display data from an external API directly within your site, rendering content inline based on occupation filters.
@@ -23,7 +27,7 @@ This document provides detailed, step-by-step instructions for integrating the C
 
 - A modern web browser with JavaScript enabled.
 - Access to your web application's source code to include scripts and markup.
-- Network access to `https://courseview.orchestrax.com`.
+- Network access to `https://courseview.candlefox.com`.
 
 ---
 
@@ -33,7 +37,7 @@ Add the SDK script tag to your HTML, ideally before your closing `</body>` tag:
 
 ```html
 <!-- Include the MicroFrontend SDK -->
-<script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
+<script src="https://courseview.candlefox.com/assets/sdk/micro-frontend-sdk.js"></script>
 ```
 
 This downloads and registers `MicroFrontend` globally for use in your code.
@@ -96,7 +100,7 @@ The SDK will query the external API, retrieve up to 20 course records based on t
     <div class="mf-container"></div>
 
     <!-- SDK Script -->
-    <script src="https://courseview.orchestrax.com/assets/sdk/micro-frontend-sdk.js"></script>
+    <script src="https://courseview.candlefox.com/assets/sdk/micro-frontend-sdk.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         MicroFrontend.init({
