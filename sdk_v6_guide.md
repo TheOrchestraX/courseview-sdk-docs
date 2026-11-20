@@ -159,7 +159,7 @@ Options for single-page apps that change route without a page load:
 
 A Course View added with attributes reloads when its `data-*` attributes change (for example a single-page app reusing the element on another route); removing `data-course-view-id` removes it. A Course View mounted with options from code ignores attribute changes; call `update()` instead.
 
-Elements that are removed from the page are unmounted automatically. With auto-mount on, an element added back is mounted again; with `data-auto-mount="false"`, call `mount()` again.
+Elements that are removed from the page are unmounted automatically. With auto-mount on, an element added back is mounted again; with `data-auto-mount="false"`, call `mount()` again. Course Views added with `MicroFrontend.init()` are not unmounted when removed, as with the previous SDK.
 
 ---
 
@@ -194,7 +194,7 @@ Pages using `micro-frontend-sdk.js` keep working; there is no deadline to move.
 <script src="https://courseview.candlefox.com/assets/sdk/v6/course-view.js"></script>
 ```
 
-With v6, each element matched by `target` gets its own Course View, so a page with several `MicroFrontend.init()` calls for different Course Views now shows all of them (the previous SDK showed only the last one). `MicroFrontend.update()` updates every Course View created through `MicroFrontend.init()`.
+With v6, each element matched by `target` gets its own Course View, so a page with several `MicroFrontend.init()` calls for different Course Views now shows all of them (the previous SDK showed only the last one). `MicroFrontend.update()` updates every Course View created through `MicroFrontend.init()`. As before, a later `init()` for an element that already shows a Course View leaves it as it is (use `MicroFrontend.update()` to change it), and options from earlier `init()` calls carry over, but only to calls for the same Course View.
 
 `MicroFrontend.init()` in v6 keeps the previous SDK's defaults: the Course View reloads when a single-page app changes route, and an occupation Course View falls back to the URL's `?occupation=` parameter. The attribute embed and `CourseView.mount()` don't do this unless you ask for it (see the [single-page app options](#javascript-api)). If your page relies on it, keep `MicroFrontend.init()` or pass those options to `CourseView.mount()`.
 
